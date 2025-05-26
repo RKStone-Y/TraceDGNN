@@ -3,7 +3,7 @@ from torch import nn
 from torch_geometric.nn import GCNConv, global_mean_pool
 
 
-# ----- GNN Encoder -----
+# GNN Encoder 
 class GNNEncoder(nn.Module):
     def __init__(self, in_channels, hidden_channels, out_channels):
         super().__init__()
@@ -24,7 +24,7 @@ class GNNEncoder(nn.Module):
         return x
 
 
-# ----- GRU Encoder -----
+# GRU Encoder 
 class GRUEncoder(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers=2, bidirectional=False):
         super().__init__()
@@ -50,7 +50,6 @@ class GRUEncoder(nn.Module):
             return h_n[-1]  # [batch, hidden_size]
 
 
-# ----- Final Trace Model -----
 class TraceModel(nn.Module):
     def __init__(self,
                  in_channels,          # dim of node features

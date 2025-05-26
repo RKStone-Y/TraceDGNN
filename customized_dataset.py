@@ -143,12 +143,12 @@ class TraceGraphDataset(Dataset):
                 "label": trace_anomaly,
                 "snapshot_list": snap_list
             }
-            if idx > 1000:
-                print("数据处理完成，已达到1000个快照，停止处理")
+            if len(self.trace_sanpshot_map) > 500:
+                print("数据处理完成，已达到threshold，停止处理")
                 break
             # break
 
-        map_path = self.processed_dir + '/trace_to_snapshot_map.json'
+        map_path = '/home/fdse/yzc/TraceDyGNN/TraceRAG_DATA_Preprocess/trace_to_snapshot_map.json'
         with open(map_path, 'w', encoding='utf-8') as f:
             json.dump(self.trace_sanpshot_map, f, indent=4, ensure_ascii=False)
             

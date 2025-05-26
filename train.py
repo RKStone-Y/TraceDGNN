@@ -23,7 +23,6 @@ dataset = TraceDataset(
 )
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, collate_fn=lambda x: x)
 
-# 模型、损失、优化器
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 torch.manual_seed(1)
 
@@ -39,7 +38,7 @@ model = TraceModel(
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
-# 训练过程
+
 model.train()
 for epoch in range(num_epochs):
     total_loss = 0

@@ -1,3 +1,4 @@
 /trace_snapshots.json
 /processed
 /__pycache__
+/trace_to_snapshot_map.json
